@@ -1,4 +1,8 @@
-import falaOi from './app';
+import app from './app';
 
-falaOi() 
- 
+const port = 3333;
+
+app.listen(port, () => {
+    console.log(`Server started on port ${port}`);
+    });
+
