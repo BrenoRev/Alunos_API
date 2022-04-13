@@ -1,0 +1,39 @@
+'use strict';
+
+module.exports = {
+  async up (queryInterface, Sequelize) {
+    return queryInterface.createTable('fotos', {
+      id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      filename: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      aluno_id:{
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: { 
+          model: 'alunos', key: 'id' 
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        
+      },
+      created_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      updated_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+    });
+  },
+
+  async down (queryInterface, Sequelize) {
+  }
+};
