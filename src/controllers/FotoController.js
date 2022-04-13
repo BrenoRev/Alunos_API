@@ -15,12 +15,12 @@ class FotoController {
                     });
                        }
         try{
-            const { originalname, fieldname } = req.file;
+            const { originalname, filename } = req.file;
             const { aluno_id } = req.body;
 
-            const foto = await Foto.create({originalname, fieldname, aluno_id})
+            const foto = await Foto.create({originalname, filename, aluno_id})
             return res.json(foto);
-            
+
         }catch(err){
             return res.status(400).json({
                     errors: [err.message]

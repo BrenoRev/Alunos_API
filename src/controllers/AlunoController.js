@@ -14,12 +14,10 @@ class AlunoController {
                     'peso',
                     'altura'
                 ],
-                order : [['id', 'DESC']],
+                order : [['id', 'DESC'], [Foto ,'id', 'DESC']],
                 include: {
                     model: Foto,
-                    order: [['id', 'DESC']],
-                    attributes: ['id', 'originalname']
-            
+                    attributes: ['url', 'originalname']
                 }
             }
         );
@@ -59,12 +57,10 @@ class AlunoController {
                             'peso',
                             'altura'
                         ],
-                        order : [['id', 'DESC']],
+                        order : [['id', 'DESC'], [Foto ,'id', 'DESC']],
                         include: {
                             model: Foto,
-                            order: [['id', 'DESC']],
-                            attributes: ['id', 'originalname']
-                    
+                            attributes: ['url', 'originalname']
                         }
                     }
                 );
