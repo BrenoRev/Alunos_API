@@ -16,17 +16,16 @@ class FotoController {
                        }
         try{
             const { originalname, fieldname } = req.file;
-            console.log(originalname);
-            console.log(fieldname);
             const { aluno_id } = req.body;
-            console.log(aluno_id)
 
             const foto = await Foto.create({originalname, fieldname, aluno_id})
-            console.log(foto);
             return res.json(foto);
+            
         }catch(err){
             return res.status(400).json({
                     errors: [err.message]
+                    ,
+                    message: 'Erro ao cadastrar foto, provavelmente o aluno não existe'
             });
         }
         });
