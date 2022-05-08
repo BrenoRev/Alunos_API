@@ -9,18 +9,21 @@ import userRoutes from './src/routes/userRoutes';
 import tokenRoutes from './src/routes/tokenRoutes';
 import alunosRoutes from './src/routes/alunoRoutes';
 import fotoRoutes from './src/routes/fotoRoutes';
+import cors from 'cors';
 
 class App {
   constructor() {
     this.app = express();
     this.middlewares();
     this.routes();
+
   }
 
   middlewares() {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
     this.app.use(express.static(resolve(__dirname, 'uploads')));
+    this.app.use(cors());
   }
 
   routes() {
@@ -30,6 +33,6 @@ class App {
     this.app.use('/alunos', alunosRoutes)
     this.app.use('/fotos', fotoRoutes)
   }
-}
 
+}
 export default new App().app;
