@@ -25,9 +25,10 @@ class TokenController {
                 errors: ['Senha inválida']
             });
         }
-
+        
+        const { id } = user;
         const token = jwt.sign({ id: user.id },process.env.TOKEN_SECRET, { expiresIn: process.env.TOKEN_EXPIRATION });
-        return res.json({ token });
+        return res.json({ token, user : {nome: user.nome, id, email} });
         }
     }
 
