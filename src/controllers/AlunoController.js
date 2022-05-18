@@ -9,6 +9,7 @@ class AlunoController {
                 attributes: [
                     'id',
                     'nome',
+                    'sobrenome',
                     'email',
                     'idade',
                     'peso',
@@ -52,6 +53,7 @@ class AlunoController {
                         attributes: [
                             'id',
                             'nome',
+                            'sobrenome',
                             'email',
                             'idade',
                             'peso',
